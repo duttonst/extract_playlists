@@ -23,15 +23,8 @@ if __name__ == "__main__":
         description = playlist["description"]
         curator = playlist["curator"] or ""
 
-        if curator:
-            by = " by %s" % curator
-        else:
-            by = ""
-
-        if description:
-            tail = ". %s" % description
-        else:
-            tail = ""
+        by = " by %s" % curator if curator else ""
+        tail = ". %s" % description if description else ""
 
         filename = sanitize_filename(title + ".csv")
         with open(filename, "w+") as p:
